@@ -1,0 +1,5 @@
+/* app/style.qss */
+/* Пока пусто, но файл уже есть и готов к использованию */
+QMainWindow {
+    background-color: #1a1a1a;
+}

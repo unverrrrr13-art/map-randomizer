@@ -9,11 +9,12 @@ from PySide6.QtCore import Qt
 from PySide6.QtGui import QPixmap
 
 from app.config import (
-    WINDOW_TITLE, WINDOW_WIDTH, WINDOW_HEIGHT, IMAGE_FILE,
+    WINDOW_WIDTH, WINDOW_HEIGHT, IMAGE_FILE,
     MAPS_FILE, TIMES_FILE, WEATHER_FILE, resource_path
 )
 from app.data_loader import get_list
 from app.widgets import GradientImageLabel
+from app import texts  # <-- Импортируем тексты
 
 
 class BusinessRandomizerApp(QMainWindow):
@@ -24,7 +25,7 @@ class BusinessRandomizerApp(QMainWindow):
         self.times = get_list(TIMES_FILE)
         self.weather = get_list(WEATHER_FILE)
 
-        self.setWindowTitle(WINDOW_TITLE)
+        self.setWindowTitle(texts.WINDOW_TITLE)  # <-- Текст из texts.py
         self.setFixedSize(WINDOW_WIDTH, WINDOW_HEIGHT)
 
         self._build_ui()
@@ -59,7 +60,7 @@ class BusinessRandomizerApp(QMainWindow):
         title_layout.setContentsMargins(80, 0, 0, 0)
         title_layout.setAlignment(Qt.AlignCenter)
 
-        self.title_label = QLabel("Подпольная федерация танководства")
+        self.title_label = QLabel(texts.MAIN_TITLE)  # <-- Текст из texts.py
         self.title_label.setAlignment(Qt.AlignCenter)
         self.title_label.setStyleSheet("""
             color: #ffffff;
@@ -98,7 +99,7 @@ class BusinessRandomizerApp(QMainWindow):
         button_wrapper_layout.setContentsMargins(300, 0, 0, 0)
         button_wrapper_layout.setSpacing(0)
 
-        self.button = QPushButton("Сгенерировать")
+        self.button = QPushButton(texts.BTN_GENERATE)  # <-- Текст из texts.py
         self.button.clicked.connect(self.update_results)
         self.button.setFixedSize(150, 37)
         self.button.setStyleSheet("""
@@ -190,22 +191,32 @@ class BusinessRandomizerApp(QMainWindow):
 
     def show_empty_results(self):
         self._clear_results()
-        for label_text in ("Карта", "Время", "Погода"):
+        
+        # <-- Тексты из texts.py
+        items = [
+            (texts.LABEL_MAP, texts.EMPTY_VALUE),
+            (texts.LABEL_TIME, texts.EMPTY_VALUE),
+            (texts.LABEL_WEATHER, texts.EMPTY_VALUE)
+        ]
+        
+        for label_text, value in items:
             self.results_container.layout().addWidget(
-                self.create_result_row(label_text, "—", is_empty=True)
+                self.create_result_row(label_text, value, is_empty=True)
             )
 
     def update_results(self):
         self._clear_results()
 
-        map_value = random.choice(self.maps) if self.maps else "Нет данных"
-        time_value = random.choice(self.times) if self.times else "Нет данных"
-        weather_value = random.choice(self.weather) if self.weather else "Нет данных"
+        # <-- Тексты ошибок из texts.py
+        map_value = random.choice(self.maps) if self.maps else texts.ERROR_NO_DATA
+        time_value = random.choice(self.times) if self.times else texts.ERROR_NO_DATA
+        weather_value = random.choice(self.weather) if self.weather else texts.ERROR_NO_DATA
 
+        # <-- Тексты из texts.py
         items = [
-            ("Карта", map_value),
-            ("Время", time_value),
-            ("Погода", weather_value),
+            (texts.LABEL_MAP, map_value),
+            (texts.LABEL_TIME, time_value),
+            (texts.LABEL_WEATHER, weather_value)
         ]
 
         for label_text, value in items:
