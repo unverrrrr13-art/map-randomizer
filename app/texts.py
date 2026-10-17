@@ -10,3 +10,5 @@ LABEL_WEATHER = "Погода"
 EMPTY_VALUE = "—"
 ERROR_FILE_NOT_FOUND = "Файл не найден"
 ERROR_NO_DATA = "Нет данных"
+
+CHK_WT_LIVE = "Карты WT Live"

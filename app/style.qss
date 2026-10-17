@@ -1,5 +1,100 @@
 /* app/style.qss */
-/* Пока пусто, но файл уже есть и готов к использованию */
-QMainWindow {
+
+/* --- Общие стили --- */
+QMainWindow, QWidget#central_widget {
     background-color: #1a1a1a;
+}
+
+QWidget#transparent_widget {
+    background: transparent;
+}
+
+/* --- Заголовок --- */
+QLabel#main_title {
+    color: #ffffff;
+    font-size: 20px;
+    background: transparent;
+    padding: 10px 0;
+}
+
+/* --- Параметры (Кнопки слева) --- */
+QPushButton#param_btn {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    padding: 0;
+}
+
+QPushButton#param_btn:hover {
+    color: rgba(255, 255, 255, 1.0);
+}
+
+QPushButton#param_btn:pressed {
+    color: rgba(200, 200, 200, 1.0);
+}
+
+/* --- Значения (Текст справа) --- */
+QLabel#value_label {
+    color: #ffffff;
+    font-size: 14px;
+    background: transparent;
+}
+
+QLabel#value_label_empty {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 14px;
+    font-style: italic;
+    background: transparent;
+}
+
+/* --- Кнопка "Сгенерировать" --- */
+QPushButton#generate_btn {
+    background: #383838;
+    color: #ffffff;
+    border: 1px solid #727272;
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 7px 10px;
+}
+
+QPushButton#generate_btn:hover {
+    background: #505050;
+}
+
+QPushButton#generate_btn:pressed {
+    background: rgba(100, 100, 100, 0.9);
+}
+
+/* --- Чекбокс --- */
+QCheckBox#wt_live_chk {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    background: transparent;
+    spacing: 8px;
+}
+
+QCheckBox#wt_live_chk:hover {
+    color: rgba(255, 255, 255, 1.0);
+}
+
+/* Кастомизация самого квадратика чекбокса (чтобы он был аккуратным на темном фоне) */
+QCheckBox#wt_live_chk::indicator {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #727272;
+    border-radius: 4px;
+    background: transparent;
+}
+
+QCheckBox#wt_live_chk::indicator:hover {
+    border: 1px solid #ffffff;
+}
+
+QCheckBox#wt_live_chk::indicator:checked {
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    /* Простая галочка внутри через картинку (если нет картинки, можно сделать через border) */
+    image: url(none); 
 }

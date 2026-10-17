@@ -6,6 +6,7 @@ WINDOW_WIDTH = 600
 WINDOW_HEIGHT = 400
 
 MAPS_FILE = os.path.join("assets", "data", "maps.txt")
+MAPS_WTLIVE_FILE = os.path.join("assets", "data", "maps_wtlive.txt")
 TIMES_FILE = os.path.join("assets", "data", "time.txt")
 WEATHER_FILE = os.path.join("assets", "data", "weather.txt")
 IMAGE_FILE = os.path.join("assets", "images", "image.png")
