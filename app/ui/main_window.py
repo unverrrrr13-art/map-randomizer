@@ -3,14 +3,15 @@ import random
 
 from PySide6.QtWidgets import (
     QMainWindow, QWidget, QGridLayout, QVBoxLayout, QHBoxLayout,
-    QLabel, QPushButton, QSizePolicy, QCheckBox
+    QLabel, QPushButton, QSizePolicy, QCheckBox, QApplication, QGraphicsOpacityEffect
 )
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QTimer, QPropertyAnimation, QEasingCurve
 from PySide6.QtGui import QPixmap
 
 from app.config import (
     WINDOW_WIDTH, WINDOW_HEIGHT, IMAGE_FILE,
-    MAPS_FILE, MAPS_WTLIVE_FILE, TIMES_FILE, WEATHER_FILE, resource_path
+    MAPS_FILE, MAPS_WTLIVE_FILE, TIMES_FILE, WEATHER_FILE, 
+    WTLIVE_PREFIX, resource_path
 )
 from app.data_loader import get_list
 from app.widgets import GradientImageLabel
@@ -29,6 +30,9 @@ class BusinessRandomizerApp(QMainWindow):
         self.setWindowTitle(texts.WINDOW_TITLE)
         self.setFixedSize(WINDOW_WIDTH, WINDOW_HEIGHT)
 
+        self.current_map_value = None 
+        self.current_map_is_wtlive = False
+
         self._build_ui()
         self.setFocusPolicy(Qt.StrongFocus)
 
@@ -37,7 +41,6 @@ class BusinessRandomizerApp(QMainWindow):
         central_widget.setObjectName("central_widget")
         self.setCentralWidget(central_widget)
 
-        # Главный слой (сетка) для фона и контента
         main_layout = QGridLayout()
         main_layout.setContentsMargins(0, 0, 0, 0)
         main_layout.setSpacing(0)
@@ -111,11 +114,10 @@ class BusinessRandomizerApp(QMainWindow):
 
         main_layout.addWidget(content_widget, 0, 0, 1, 1)
 
-        # 3. Чекбокс (абсолютное позиционирование поверх окна)
+        # 3. Чекбокс (абсолютное позиционирование)
         self.chk_wt_live = QCheckBox(texts.CHK_WT_LIVE, central_widget)
         self.chk_wt_live.setObjectName("wt_live_chk")
         self.chk_wt_live.setCursor(Qt.PointingHandCursor)
-        
         self.chk_wt_live.adjustSize()
         
         x_pos = WINDOW_WIDTH - self.chk_wt_live.width() - 20
@@ -123,6 +125,31 @@ class BusinessRandomizerApp(QMainWindow):
         
         self.chk_wt_live.move(x_pos, y_pos)
         self.chk_wt_live.raise_()
+
+        # 4. Маркер "Скопировано" (левый нижний угол) с анимацией
+        self.copy_marker = QLabel(texts.COPY_MARKER, central_widget)
+        self.copy_marker.setObjectName("copy_marker")
+        self.copy_marker.setStyleSheet("color: #a0a0a0; font-size: 12px; background: transparent;")
+        self.copy_marker.adjustSize()
+        
+        marker_y = WINDOW_HEIGHT - self.copy_marker.height() - 20
+        self.copy_marker.move(20, marker_y)
+
+        # Настройка эффекта прозрачности
+        self.opacity_effect = QGraphicsOpacityEffect(self.copy_marker)
+        self.copy_marker.setGraphicsEffect(self.opacity_effect)
+
+        # Настройка анимации
+        self.fade_animation = QPropertyAnimation(self.opacity_effect, b"opacity")
+        self.fade_animation.setDuration(1500) # 1.5 секунды
+        self.fade_animation.setStartValue(1.0)
+        self.fade_animation.setEndValue(0.0)
+        self.fade_animation.setEasingCurve(QEasingCurve.Type.InOutQuad)
+        
+        # Скрываем маркер, когда анимация завершится
+        self.fade_animation.finished.connect(self.copy_marker.hide)
+        
+        self.copy_marker.hide()
 
     def load_image(self, image_path: str):
         try:
@@ -143,7 +170,7 @@ class BusinessRandomizerApp(QMainWindow):
         if event.key() in (Qt.Key_Return, Qt.Key_Enter):
             self.update_all_results()
 
-    def create_result_row(self, label_text: str, value: str, is_empty: bool = False, callback=None) -> QWidget:
+    def create_result_row(self, label_text: str, value: str, is_empty: bool = False, callback=None, value_callback=None) -> QWidget:
         row = QWidget()
         row.setObjectName("transparent_widget")
         row.setFixedHeight(35)
@@ -160,14 +187,20 @@ class BusinessRandomizerApp(QMainWindow):
         if callback:
             btn_label.clicked.connect(callback)
 
-        value_label = QLabel(value)
-        value_label.setObjectName("value_label_empty" if is_empty else "value_label")
-        
-        value_label.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
-        value_label.setWordWrap(False)
+        if value_callback:
+            value_widget = QPushButton(value)
+            value_widget.setObjectName("value_label_empty" if is_empty else "value_label")
+            value_widget.setStyleSheet("text-align: left; border: none; background: transparent; padding: 0;")
+            value_widget.setCursor(Qt.PointingHandCursor)
+            value_widget.clicked.connect(lambda: value_callback(value_widget))
+        else:
+            value_widget = QLabel(value)
+            value_widget.setObjectName("value_label_empty" if is_empty else "value_label")
+            value_widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+            value_widget.setWordWrap(False)
 
         row_layout.addWidget(btn_label, alignment=Qt.AlignLeft)
-        row_layout.addWidget(value_label, alignment=Qt.AlignLeft)
+        row_layout.addWidget(value_widget, alignment=Qt.AlignLeft)
         row_layout.addStretch()
 
         return row
@@ -180,20 +213,65 @@ class BusinessRandomizerApp(QMainWindow):
                 item.widget().deleteLater()
 
     def _get_random_map(self):
-        """Выбирает случайную карту. Если галочка стоит - объединяет оба списка."""
-        if self.chk_wt_live.isChecked() and self.maps_wtlive:
-            # Объединяем основной список и WT Live
+        """Возвращает кортеж (текст_для_отображения, оригинал_строки, это_wtlive)"""
+        if self.chk_wt_live.isChecked():
+            # Объединяем оба списка
             combined_maps = self.maps + self.maps_wtlive
-            return random.choice(combined_maps)
+            if not combined_maps:
+                return texts.ERROR_NO_DATA, texts.ERROR_NO_DATA, False
+                
+            raw_map = random.choice(combined_maps)
+            is_wtlive = raw_map in self.maps_wtlive
+            
+            # Отрезаем всё после ' | ' для отображения
+            display_text = raw_map.split(' | ')[0].strip()
+            
+            if is_wtlive:
+                display_text = f"{WTLIVE_PREFIX}{display_text}"
+                
+            return display_text, raw_map, is_wtlive
         
-        # Если галочка не стоит, берем только обычные карты
-        return random.choice(self.maps) if self.maps else texts.ERROR_NO_DATA
+        # Если галочка не стоит, берем только из обычных карт
+        if not self.maps:
+            return texts.ERROR_NO_DATA, texts.ERROR_NO_DATA, False
+            
+        raw_map = random.choice(self.maps)
+        display_text = raw_map.split(' | ')[0].strip()
+        
+        return display_text, raw_map, False
 
     def _get_random_value(self, data_list):
-        return random.choice(data_list) if data_list else texts.ERROR_NO_DATA
+        """Для времени и погоды тоже отрезаем ' | ' на всякий случай"""
+        if not data_list:
+            return texts.ERROR_NO_DATA
+        raw_val = random.choice(data_list)
+        return raw_val.split(' | ')[0].strip()
+
+    def _process_map_click(self, label_widget):
+        """Копирует ссылку и показывает маркер в левом нижнем углу."""
+        if not self.current_map_value or not self.current_map_is_wtlive:
+            return
+
+        # Ищем разделитель ' | '
+        if ' | ' in self.current_map_value:
+            parts = self.current_map_value.split(' | ', 1)
+            if len(parts) > 1 and parts[1].strip():
+                link = parts[1].strip()
+                clipboard = QApplication.clipboard()
+                clipboard.setText(link)
+                
+                # Показываем маркер
+                self.copy_marker.show()
+                
+                # Сбрасываем прозрачность (если предыдущая анимация не доделала до конца)
+                self.opacity_effect.setOpacity(1.0)
+                
+                # Запускаем плавное исчезновение
+                self.fade_animation.start()
 
     def show_empty_results(self):
         self._clear_results()
+        self.current_map_value = None
         
         items = [
             (texts.LABEL_MAP, texts.EMPTY_VALUE, lambda: self.update_single_result("map")),
@@ -209,28 +287,39 @@ class BusinessRandomizerApp(QMainWindow):
     def update_all_results(self):
         self._clear_results()
 
+        map_display, map_raw, is_wtlive = self._get_random_map()
+        self.current_map_value = map_raw
+        self.current_map_is_wtlive = is_wtlive
+
         items = [
-            (texts.LABEL_MAP, self._get_random_map(), lambda: self.update_single_result("map")),
-            (texts.LABEL_TIME, self._get_random_value(self.times), lambda: self.update_single_result("time")),
-            (texts.LABEL_WEATHER, self._get_random_value(self.weather), lambda: self.update_single_result("weather"))
+            (texts.LABEL_MAP, map_display, lambda: self.update_single_result("map"), True),
+            (texts.LABEL_TIME, self._get_random_value(self.times), lambda: self.update_single_result("time"), False),
+            (texts.LABEL_WEATHER, self._get_random_value(self.weather), lambda: self.update_single_result("weather"), False)
         ]
 
-        for label_text, value, callback in items:
-            self.results_container.layout().addWidget(
-                self.create_result_row(label_text, value, is_empty=False, callback=callback)
+        for label_text, value, callback, is_map in items:
+            row = self.create_result_row(
+                label_text, 
+                value, 
+                is_empty=False, 
+                callback=callback,
+                value_callback=self._process_map_click if is_map else None
             )
+            self.results_container.layout().addWidget(row)
 
     def update_single_result(self, result_type: str):
         layout = self.results_container.layout()
         
         if result_type == "map":
-            new_value = self._get_random_map()
+            display_val, raw_val, is_wtlive = self._get_random_map()
+            self.current_map_value = raw_val
+            self.current_map_is_wtlive = is_wtlive
             index = 0
         elif result_type == "time":
-            new_value = self._get_random_value(self.times)
+            display_val = self._get_random_value(self.times)
             index = 1
         else:
-            new_value = self._get_random_value(self.weather)
+            display_val = self._get_random_value(self.weather)
             index = 2
 
         item = layout.itemAt(index)
@@ -239,10 +328,24 @@ class BusinessRandomizerApp(QMainWindow):
             
         row_widget = item.widget()
         row_layout = row_widget.layout()
-        value_label = row_layout.itemAt(1).widget()
+        value_widget = row_layout.itemAt(1).widget()
         
-        if isinstance(value_label, QLabel):
-            value_label.setText(new_value)
-            value_label.setObjectName("value_label")
-            value_label.style().unpolish(value_label)
-            value_label.style().polish(value_label)
+        if result_type == "map":
+            # Пересоздаем виджет, так как меняется кликабельность
+            value_widget.deleteLater()
+            
+            value_btn = QPushButton(display_val)
+            value_btn.setObjectName("value_label")
+            value_btn.setStyleSheet("text-align: left; border: none; background: transparent; padding: 0;")
+            value_btn.setCursor(Qt.PointingHandCursor)
+            value_btn.clicked.connect(lambda: self._process_map_click(value_btn))
+            
+            row_layout.insertWidget(1, value_btn, alignment=Qt.AlignLeft)
+        else:
+            if isinstance(value_widget, QLabel):
+                value_widget.setText(display_val)
+                value_widget.setObjectName("value_label")
+                value_widget.style().unpolish(value_widget)
+                value_widget.style().polish(value_widget)
+            elif isinstance(value_widget, QPushButton):
+                value_widget.setText(display_val)

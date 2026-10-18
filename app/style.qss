@@ -98,3 +98,10 @@ QCheckBox#wt_live_chk::indicator:checked {
     /* Простая галочка внутри через картинку (если нет картинки, можно сделать через border) */
     image: url(none); 
 }
+
+/* Маркер копирования */
+QLabel#copy_marker {
+    color: #a0a0a0;
+    font-size: 12px;
+    background: transparent;
+}

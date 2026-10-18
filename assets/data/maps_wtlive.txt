@@ -1,88 +1,91 @@
-Микро Аляска
-Нормандия XXL
-Карантан город
-Новороссийск XXL
-Аляска XXL
-Американская пустыня XXL
-Горы Карантана
-Угловая микро Аляска
-Первая мировая
-Солнечный город XXL
-Карпаты XXL
-Джунгли F1
-Американская пустыня F2
-Черный лес M
-Синай большой
-Полигон F1
-Вьетнам 1
-Пески синая XXL
-Нормандия XL
-Бреслау F1
-Рейн 1
-Моздок F1
-Американская пустыня F1
-Северная Голландия F1
-Огненная дуга XL
-Хюртген XS
-Новороссийск угловая
-Хюртген XXL
-Аламейн D1
-Иберийская крепость XXL
-Япония XXL
-Карелия F1
-Рейн C2
-Ледяной перевал XXL
-Мажино F1
-Кампания F1
-Тунис центр
-Арденны XXL
-Моздок XXL
-Золотой карьер M
-Моздок M
-Нормандия (защита)
-Иберийская крепость XS
-Белая скала F2
-Испытательный Полигон F1
-Волоколамск XXL
-Огненная дуга город
-Польша F1
-Европейская провинция F1
-Прадеж M
-Волоколамск XXL2
-Пепельная река центр
-Аляска средняя
-Прадеж S
-Мажино Зима XXL
-Золотой карьер C
-Белая скала F1
-Рейн кишка
-Вьетнам XXL
-Старый моздок
-Аттика F1
-Аттика F2
-Поля Нормандии F1
-Польша F2
-Швеция F1
-Волоколамск F1
-Хюртген F1
-Карелия (диагональ)
-Восточная Европа город
-Иберийская крепость (защита)
-Аламейн L
-Заброшенный город M
-Аламейн M
-Моздок C4
-Карпаты F1
-Красные пески F1
-Сталинград F1
-Хюртген L
-Вьетнам L
-Мажино M
-Фландрия диагональ
-Арденны зима S
-Арктика диагональ
-Волоколамск C3
-Мажино S
-Хюртген река
-Арденны зима M
-Вьетнам M
+Полигон XXL | https://live.warthunder.ru/dl/a07d2d15677d5d961056c8ac84cc5a95c8b91bc0/
+Хюртген XS | https://live.warthunder.ru/dl/b68797cf464549959d3d90d07ac4b00065b7d8f3/
+Япония Full | https://live.warthunder.ru/dl/ecfbb82b3b9025e7ecc2e5d5ada930dc11ba1543/
+Пески синая XXL | https://live.warthunder.ru/dl/2c51953ab4efff2cffbedcf015e8e28bd24f2cc4/
+Первая мировая | https://live.warthunder.ru/dl/4d5d206bf196df27dfd9278251d9d57ac1462e78/
+Нормандия XXL | https://live.warthunder.ru/dl/fc87b6cfb14970aa387fd167c0f7cf9ffa1a9fd3/
+Холмы Карантана | https://live.warthunder.ru/dl/03eff9ede344840597a82c1481c6a401b801976c/
+Новороссийск XXL | https://live.warthunder.ru/dl/5437a4a2849d9210835d8ca839471cb362ca7fed/
+
+//Микро Аляска | https://live.warthunder.ru/dl/fb59e921ea5dd04561b4c738c7415463a6abfb70/
+//Карантан город | https://live.warthunder.ru/dl/a899bf632b4ff4fa9b5f333e3ec10c70939ea038/
+//Аляска XXL | https://live.warthunder.ru/dl/47e73edd8078ca66c90883f5db38c2a382cf2ffa/
+//Американская пустыня XXL | https://live.warthunder.ru/dl/58c60cfcb10837753b28b234d4efd451d54ab0c3/
+//Горы Карантана | https://live.warthunder.ru/dl/e7baa99894a97ef021f10828176b1eb38bb10d4d/
+//Угловая микро Аляска | https://live.warthunder.ru/dl/346896ec58f0253a85470542343df101383b79cb/
+//Солнечный город XXL | https://live.warthunder.ru/dl/72283e5c50a08ea9522c2e1efe939e4c25bbdfd9/
+//Карпаты XXL | https://live.warthunder.ru/dl/f21962f19f9c0cb6d62797c7225883c1eb51506f/
+//Джунгли F1 | https://live.warthunder.ru/dl/1a605aa9c2acf0f23f13e05ef51720f26bb70c60/
+//Американская пустыня F2 | https://live.warthunder.ru/dl/c73acd2de807696ec31efd5d6fa95262f721b8b3/
+//Черный лес M | https://live.warthunder.ru/dl/cd427eea6f8a5545b5789d1341d931441b83d6db/
+//Синай большой | https://live.warthunder.ru/dl/eb8e71fb106f140e78d2b64b203ed1541749e328/
+//Полигон F1 | https://live.warthunder.ru/dl/67db34ca9d71ad64c106ec3b6e3df4764164899c/
+//Нормандия XL | https://live.warthunder.ru/dl/c98155cb702820df13ac00b8804d047409028723/
+//Бреслау F1 | https://live.warthunder.ru/dl/ea3b4830c72d8563496b65374b3e9217e438e76a/
+//Рейн 1
+//Моздок F1 | https://live.warthunder.ru/dl/6b980e16408608240fc9c52ad0146fbcf51062a4/
+//Американская пустыня F1 | https://live.warthunder.ru/dl/931784293b0ae75eca13251be8fed1541d17f669/
+//Северная Голландия F1 | https://live.warthunder.ru/dl/6585b6af06ec5d175b3bea1684fb466af5b65745/
+//Огненная дуга XL | https://live.warthunder.ru/dl/82a6916d94e549b76cfd1c34af4c69bc1551e79c/
+//Новороссийск D1 (Угловая) | https://live.warthunder.ru/dl/3b23a08fecfada83ac7dd8c819c1d120cb915c32/
+//Хюртген XXL | https://live.warthunder.ru/dl/a5f2c20ef5bc7e0411a861b85f2a769cc14475c5/
+//Аламейн D1 | https://live.warthunder.ru/dl/784363f3279e888352d1eb7ccff03a1ad8eb09cd/
+//Иберийская крепость XXL | https://live.warthunder.ru/dl/b51372c8a8902ed1b8569bb2328672d00994691a/
+//Япония XXL | https://live.warthunder.ru/dl/b53d6485bf7fbc243d4c2f33ddf8bf3119898ab8/
+//Карелия F1 | https://live.warthunder.ru/dl/59af813dc018e4b01c05e0a7cb2377c5ef319cc9/
+//Рейн C2 | https://live.warthunder.ru/dl/44f785cc207eaae721a069787518ab173000e170/
+//Ледяной перевал XXL | https://live.warthunder.ru/dl/1c495c4083916aa351270acece59533242d39257/
+//Мажино F1 | https://live.warthunder.ru/dl/e2989ba044a7685bbaaad08d28f0396ae0516768/
+//Кампания F1 | https://live.warthunder.ru/dl/c9057ac8aa4713ae5813abe2c475fa77fcb217ad/
+//Тунис центр | https://live.warthunder.ru/dl/4c2a02a08574e64bbdd9346d5bd03b1fc3818740/
+//Арденны XXL | https://live.warthunder.ru/dl/f1e79bde237ac78070ac3bab6367b3eb52d47222/
+//Моздок XXL | https://live.warthunder.ru/dl/4e9d476723ef028304d3fb3ccaf6fb049acf46b3/
+//Золотой карьер M | https://live.warthunder.ru/dl/94b42281e14111675aa3e8e869601d8b0d9270b8/
+//Моздок M | https://live.warthunder.ru/dl/0f818c97422e6b545776a6991e4675180cbe9460/
+//Нормандия (защита) | https://live.warthunder.ru/dl/93b6408e54b025931d35b1b353e5be3985fe1d1e/
+//Иберийская крепость XS | https://live.warthunder.ru/dl/f6cbf97cc011c231b6e68e06f6f65e5e87631e3c/
+//Белая скала F2 | https://live.warthunder.ru/dl/37af2fa1e21ee526a3896f3fe890b57f43e9b9f1/
+//Испытательный Полигон F1 | https://live.warthunder.ru/dl/67db34ca9d71ad64c106ec3b6e3df4764164899c/
+//Волоколамск XXL | https://live.warthunder.ru/dl/6723d8eded9a882f21db7bf1333c9e0ea57c5df5/
+//Огненная дуга город | https://live.warthunder.ru/dl/2b17a499a2257482a23eaca5c8aa606b94d6ce1f/
+//Польша F1 | https://live.warthunder.ru/dl/7d8f75f882daae02f6d29b1009a6ec565a843a3a/
+//Европейская провинция XXL | https://live.warthunder.ru/dl/fc9365a3fea5e662789b06bbd32d990b26125c68/
+//Прадеж M | https://live.warthunder.ru/dl/2bebce4b35ce13e55aba38c00cbcc4e77879221a/
+//Волоколамск XXL2
+//Пепельная река центр | https://live.warthunder.ru/dl/de18bf498b6833d7ae357f96f3d60eceba54d9f5/
+//Аляска город | https://live.warthunder.ru/dl/7c5c9fc1c79f4ad8dd9751a13188f99b07888755/
+//Прадеж S | https://live.warthunder.ru/dl/d614fd33970ccdfe4549aa69c391e7fdca1cff45/
+//Мажино Зима XXL | https://live.warthunder.ru/dl/b0b82fa98bd0b26ad049cf00f3ad92e98f5fa778/
+//Золотой карьер S | https://live.warthunder.ru/dl/d591fab350e99499243c7fcf51915419fb849cc5/
+//Белая скала F1 | https://live.warthunder.ru/dl/118e05addcbd33bed3f043faa7d2b954a6348542/
+//Рейн кишка | https://live.warthunder.ru/dl/0249049da208def651699b372619e20b805c7446/
+//Вьетнам XXL | https://live.warthunder.ru/dl/813ae2421904c3bf763460206291b48aa40b68a2/
+//Старый моздок | https://live.warthunder.ru/dl/2be88511aefb47a03c3861da558f26a756a676f2/
+//Аттика F1 | https://live.warthunder.ru/dl/a924c493f8f4141d9cdee69d4e87f7caaa769a73/
+//Аттика F2 | https://live.warthunder.ru/dl/761c4682b1660ec28c5c6db4d2ad1e14dd928d67/
+//Поля Нормандии F1 | https://live.warthunder.ru/dl/5dddce337f8b21661cea5a74f8a94cfc26ad5f1d/
+//Польша F2 | https://live.warthunder.ru/dl/f308daa4e24ba709a5d88f1f02396d64385dac9d/
+//Швеция F1 | https://live.warthunder.ru/dl/e88da5804854889d4271fef82851fb20a6e3b1f5/
+//Волоколамск F1 | https://live.warthunder.ru/dl/7e977a6a3fcb8360f9abdc36157545eb12ab8ca7/
+//Хюртген F1 | https://live.warthunder.ru/dl/5aa324ac217cc2983ce37206e30189db1a1a3cc3/
+//Карелия (диагональ) | https://live.warthunder.ru/dl/04ab87d2dd635dd96c4908a389a5d83afd24afae/
+//Восточная Европа город | https://live.warthunder.ru/dl/1fa352d4a6c60f3a6d2e1338be6a29dbd8899c8d/
+//Иберийская крепость (защита) | https://live.warthunder.ru/dl/b969e3325cb7d8086746aa27f3e4c900d0a32049/
+//Аламейн L | https://live.warthunder.ru/dl/8a02e9ed8ca4ffbac066fbe2b264371536b79d11/
+//Заброшенный город M | https://live.warthunder.ru/dl/c14a3acdeb357aef1319d08392d03b3cefcba8d2/
+//Аламейн M | https://live.warthunder.ru/dl/b80a6322a438331bd0373c30b3bf016b90341b73/
+//Моздок C4 | https://live.warthunder.ru/dl/b79ff59df10b912fb6e60ef0e88c94ce128ce1e2/
+//Карпаты F1 | https://live.warthunder.ru/dl/44978eba797772e1ff3d0efd44b2f37df80bdd8e/
+//Красные пески F1 | https://live.warthunder.ru/dl/4fd4f4e878a08ca2a7b74e537726db9c45981f3b/
+//Сталинград F1 | https://live.warthunder.ru/dl/9ef4d26985443beb86e2c50056038a496c1df45d/
+//Хюртген L | https://live.warthunder.ru/dl/320f9e10ce92bcff2840779d7abb343a7f9e846f/
+//Вьетнам L | https://live.warthunder.ru/dl/ff80e15d9a973f589bb5cadbbd268cbbe04a0ae0/
+//Мажино M | https://live.warthunder.ru/dl/b20d3e42d7c71e8c295deeefcea3331038467c08/
+//Фландрия диагональ | https://live.warthunder.ru/dl/fc101c846d5108049be2049e96c946a672ae543f/
+//Арденны зима S | https://live.warthunder.ru/dl/ae65e7848b4bde3a7e32c7babd875708a16e3b02/
+//Арктика диагональ (центр) | https://live.warthunder.ru/dl/62e33abfa79a98716a0fb2a46e2aee188f4c888c/
+//Волоколамск C3 | https://live.warthunder.ru/dl/8251d6717d245f66c82f21af7ca7992f8cbc566a/
+//Мажино S | https://live.warthunder.ru/dl/e65b1ac7a369b52d7e73c8f5debb4080c11d4ccf/
+//Хюртген река | https://live.warthunder.ru/dl/2b000a35e019ce3dadcb9628953a60a5455edf0c/
+//Арденны зима M | https://live.warthunder.ru/dl/172703682ddbddaaa5647fd497c878fe565f08fc/
+//Вьетнам M | https://live.warthunder.ru/dl/dffcff05b6ef181c28bf76f36fdc70b28b34da86/
