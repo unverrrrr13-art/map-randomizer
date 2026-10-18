@@ -36,7 +36,7 @@ class GradientImageLabel(QLabel):
         )
 
         offset_x = -150
-        offset_y = 75
+        offset_y = 0
 
         x = (self.width() - scaled_pixmap.width()) // 2 + offset_x
         y = (self.height() - scaled_pixmap.height()) // 2 + offset_y

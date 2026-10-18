@@ -4,8 +4,6 @@ from app import texts
 def get_list(file_name: str) -> list[str]:
     try:
         with open(resource_path(file_name), 'r', encoding='utf-8') as f:
-            # Читаем строки, убираем пробелы по краям, 
-            # пропускаем пустые строки и комментарии //
             return [
                 line.rstrip('\n').strip() 
                 for line in f 

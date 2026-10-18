@@ -12,7 +12,6 @@ TIMES_FILE = os.path.join("assets", "data", "time.txt")
 WEATHER_FILE = os.path.join("assets", "data", "weather.txt")
 IMAGE_FILE = os.path.join("assets", "images", "image.png")
 
-# Добавили путь к файлу стилей
 STYLE_FILE = os.path.join("app", "style.qss")
 
 BACKGROUND_COLOR = "#1a1a1a"
