@@ -1,25 +1,19 @@
-@echo off
+﻿@echo off
 chcp 65001 >nul
 cd /d "%~dp0"
 
 python -c "import PySide6" >nul 2>&1
 if %ERRORLEVEL% neq 0 (
-    echo [INFO] PySide6 не найден. Устанавливаем зависимости...
+    echo [INFO] Installing dependencies...
     python -m pip install -r requirements.txt
     if %ERRORLEVEL% neq 0 (
-        echo.
-        echo [ОШИБКА] Не удалось установить зависимости. 
-        echo Убедитесь, что Python установлен и добавлен в PATH.
+        echo [ERROR] Failed to install dependencies.
         pause
         exit /b
     )
 )
 
-echo Запуск Map Randomizer...
-python -m app.main
+echo Starting GuP Randomizer...
+start "" pythonw -m app.main
 
-if %ERRORLEVEL% neq 0 (
-    echo.
-    echo [ОШИБКА] Программа завершилась с ошибкой.
-    pause
-)
+exit
