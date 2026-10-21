@@ -1,4 +1,4 @@
-import os
+import os, sys
 
 APP_NAME = "Рандомайзер"
 WINDOW_TITLE = "Рандомайзер"
@@ -17,6 +17,8 @@ STYLE_FILE = os.path.join("app", "style.qss")
 BACKGROUND_COLOR = "#1a1a1a"
 
 def get_base_path() -> str:
+    if getattr(sys, 'frozen', False):
+        return os.path.dirname(sys.executable)
     return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def resource_path(name: str) -> str:

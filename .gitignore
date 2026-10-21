@@ -2,3 +2,9 @@ app/__pycache__/
 app/ui/__pycache__/
 app/widgets/__pycache__/
 assets/images/.image.png
+dist/
+build/
+GuP-Randomizer.spec
+Randomizer-v1.0.0-SourceCode.zip
+Randomizer-v1.0.0-win64.zip
+Randomizer.exe
