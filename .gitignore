@@ -5,6 +5,5 @@ assets/images/.image.png
 dist/
 build/
 GuP-Randomizer.spec
-Randomizer-v1.0.0-SourceCode.zip
-Randomizer-v1.0.0-win64.zip
 Randomizer.exe
+Archive/
