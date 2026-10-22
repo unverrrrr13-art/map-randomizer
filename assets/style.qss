@@ -96,3 +96,26 @@ QLabel#copy_marker {
     font-size: 12px;
     background: transparent;
 }
+
+QPushButton#value_label {
+    color: #ffffff;
+    font-size: 14px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    padding: 0;
+}
+
+QPushButton#value_label:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+QPushButton#value_label_empty {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 14px;
+    font-style: italic;
+    background: transparent;
+    border: none;
+    text-align: left;
+    padding: 0;
+}
