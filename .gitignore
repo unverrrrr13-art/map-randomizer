@@ -5,5 +5,9 @@ assets/images/.image.png
 dist/
 build/
 GuP-Randomizer.spec
+randomizer.spec
 Randomizer.exe
 Archive/
+icon.ico
+randomizer_test.exe
+randomizer_test.spec
